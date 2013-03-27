@@ -1,0 +1,2 @@
+def about(request):
+  pass

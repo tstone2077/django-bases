@@ -6,11 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Le styles -->
     <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
     <title>{{ page_title }}</title>
     <link href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top:60px;
+            padding-bottom:40px;
+        }
+    </style>
   </head>
   <body>
+  <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+          <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="{% url index %}">Django-bases</a>
+              <div class="nav-collapse collapse navbar-responsive-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="{% url index %}">{% trans "Home" %}</a></li>
+                    <li><a href="{% url about %}">{% trans "About" %}</a></li>
+                </ul>
+                {% if user.is_authenticated %}
+                user
+                {% else %}
+                <form class="navbar-form pull-right" action="{% url django.contrib.auth.views.login %}" method="post">
+                {% csrf_token %}
+                <input type="text" class="input-small" id="id_username" placeholder="{% trans 'Username' %}" />
+                <input type="password" class="input-small" id="id_password" placeholder="{% trans 'Password' %}" />
+                <button type="submit" class="btn">{% trans 'Log In' %}</button>
+                </form>
+                {% endif %}
+              </div> <!-- nav-collapse -->
+          </div> <!-- container -->
+      </div> <!-- navbar-inner -->
+  </div> <!-- navbar -->
+  <div class="container">
+  {% block container %}
+    <div class="content">
+        <div class="page-header">
+            <h1> SITE NAME <small> sub-header </small></h1>
+        </div>
+        <ul>
+            <li>item1</li>
+        </ul>
+    </div>
+  {% endblock %}
+  <hr>
+  <footer>
+  <p> Footer information </p>
+  </footer>
+  </div> <!-- container -->
+  <!--[if lt IE 9]>
+  <script src="{{ STATIC_URL }}js/html5.js"></script>
+  <![endif]-->
+  <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+  <script src="{{ STATIC_URL }}js/prettify.js"></script>
+  <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
   </body>
 </html>

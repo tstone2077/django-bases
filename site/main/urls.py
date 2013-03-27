@@ -8,7 +8,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'django.views.generic.simple.direct_to_template', {'template':'base.html'},name='index'),
+    url(r'^about/$', 'about',name='about'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('django.contrib.auth.urls')),
     # url(r'^main/', include('main.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
