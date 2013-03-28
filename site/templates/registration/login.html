@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {{ siteName }} Login {% endblock %}
+{% block container %}
+    <div class="content">
+    {% if form.errors %}
+        <div class="alert alert-block fade in">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <p><strong>{% trans "Oh no!" %}</strong> {% trans "Please enter a correct username and password. Note that both fields are case-sensitive." %}</p>
+        </div>
+    {% endif %}
+    </div>
+
+<form id="login-form" method="post" action="{% url django.contrib.auth.views.login %}">
+{% csrf_token %}
+    <fieldset>
+        <legend> {% trans 'Log in' %} </legend>
+        {% for field in form %}
+            {% include 'registration/form_field.html' %}
+        {% endfor %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <div class="actions">
+            <button type="submit" class="btn"> {% trans "Log In" %} </button>
+            <button type="reset" class="btn"> {% trans "Cancel" %} </button>
+        </div>
+
+</form>
+{% endblock %}
