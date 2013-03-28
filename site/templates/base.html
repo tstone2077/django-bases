@@ -29,8 +29,8 @@
               <a class="brand" href="{% url index %}">{{ siteName }}</a>
               <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav">
-                    <li class="active"><a href="{% url index %}">{% trans "Home" %}</a></li>
-                    <li><a href="{% url about %}">{% trans "About" %}</a></li>
+                    <li {% if not active %} class="active" {% endif %}><a href="{% url index %}">{% trans "Home" %}</a></li>
+                    <li {% if active == 'about' %} class="active" {% endif %}><a href="{% url about %}">{% trans "About" %}</a></li>
                 </ul>
                 {% if user.is_authenticated %}
                     <ul class="nav pull-right">
@@ -52,6 +52,7 @@
                 {% csrf_token %}
                 <input type="text" class="input-small" id="id_username" placeholder="{% trans 'Username' %}" name="username"/>
                 <input type="password" class="input-small" id="id_password" placeholder="{% trans 'Password' %}" name="password"/>
+                <input type="hidden" name="next" value="{{ request.path }}" />
                 <button type="submit" class="btn">{% trans 'Log In' %}</button>
                 </form>
                 {% endif %}

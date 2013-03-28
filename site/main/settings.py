@@ -1,5 +1,6 @@
 # Django settings for main project.
 from os.path import abspath, dirname, join
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 SITE_ROOT=abspath(join(dirname(__file__),".."))
 
@@ -108,6 +109,7 @@ ROOT_URLCONF = 'main.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'main.wsgi.application'
 
+TEMPLATE_CONTEXT_PROCESSORS += ('django.core.context_processors.request',)
 TEMPLATE_DIRS = (
     join(SITE_ROOT,'templates')
 )
