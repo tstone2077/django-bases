@@ -37,6 +37,7 @@ fi
 . "$ENV_NAME/$INTERMEDIATE_DIR/activate"
 
 #install packages
+export PIP_DOWNLOAD_CACHE=$SCRIPT_DIR/pip-cache
 pip install django==1.4.2 || exit $?
 pip install gitissius==0.1.6 || exit $?
 echo Done creating environment "$ENV_NAME" using $PYTHON_BIN ...
