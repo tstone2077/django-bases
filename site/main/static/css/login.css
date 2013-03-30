@@ -1,0 +1,21 @@
+.login-menu {
+  left: auto;
+  right: 0;
+  width: 200px;
+}
+.login-menu.dropdown-menu {
+    padding: 10px;
+    max-width: none;
+    width: auto;
+}
+.login-menu.dropdown-menu form {
+    margin: 0;
+}
+.login-menu.dropdown-menu::before {
+  left: auto;
+  right: 9px;
+}
+.login-menu.dropdown-menu::after {
+  left: auto;
+  right: 10px;
+}

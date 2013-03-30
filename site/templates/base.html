@@ -10,6 +10,7 @@
     <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
     <title>{% block title %} {{ siteName }} {% endblock %}</title>
     <link href="{{ STATIC_URL }}css/lavish.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/login.css" rel="stylesheet">
     <style type="text/css">
         body {
             padding-top:60px;
@@ -48,13 +49,22 @@
                             </li>
                     </ul>
                 {% else %}
-                <form class="navbar-form pull-right" action="{% url django.contrib.auth.views.login %}" method="post">
-                {% csrf_token %}
-                <input type="text" class="input-small" id="id_username" placeholder="{% trans 'Username' %}" name="username"/>
-                <input type="password" class="input-small" id="id_password" placeholder="{% trans 'Password' %}" name="password"/>
-                <input type="hidden" name="next" value="{{ request.path }}" />
-                <button type="submit" class="btn">{% trans 'Log In' %}</button>
-                </form>
+                <ul class="nav pull-right">
+                    <li class="divider-vertical"></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Log In<span class="caret"></span></a>
+                        <div class="dropdown-menu login-menu">
+                            <form action="{% url django.contrib.auth.views.login %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ request.path }}" />
+                                <input type="text" id="id_username" placeholder="{% trans 'Username' %}" name="username"/>
+                                <input type="password" id="id_password" placeholder="{% trans 'Password' %}" name="password"/>
+                                <input style="float: right;" type="submit" class="btn pull-right" value="{% trans 'Log In' %}" />
+                                <div class="formLine" sylte="text-align:center;"><a href="{% url django.contrib.auth.views.password_reset %}">{% trans 'I forgot my password' %}</a></div>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
                 {% endif %}
               </div> <!-- nav-collapse -->
           </div> <!-- container -->
