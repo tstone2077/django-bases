@@ -35,7 +35,7 @@
                 </ul>
                 {% if user.is_authenticated %}
                     <ul class="nav pull-right">
-                        <li id="fat-menu" class="dropdown">
+                        <li class="dropdown">
                             <a href="#" id="userDropdown" role="button" class="dropdown-toggle" data-toggle="dropdown">
                                 {{ user.username }}
                                 <b class="caret"></b>
@@ -50,6 +50,7 @@
                     </ul>
                 {% else %}
                 <ul class="nav pull-right">
+                    {%comment%}<li><a href="{% url registration_register %}">Sign Up</a></li> {%endcomment%}
                     <li class="divider-vertical"></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown">Log In<span class="caret"></span></a>
