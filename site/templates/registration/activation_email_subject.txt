@@ -1,0 +1,1 @@
+Activation for a new account on {{ site }}. (Expires in {{ expiration_days }} days)

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block container %}
+<div class="alert alert-block fade in">
+    <a class="close" data-dismiss="alert" href="#">×</a>
+    <p>
+    {% trans 'Activation Failed.' %}
+    </p>
+</div>
+{% trans "This may be due to the fact that the account has already been activated. If you are having trouble logging in, you can" %} 
+<a href="{% url django.contrib.auth.views.password_reset %}">
+{% trans "reset your password" %}</a>.
+{% trans "Otherwise, you will have to " %} 
+<a href="{% url registration_register %}">{% trans 're-register' %}</a> 
+{% trans "for an account" %}.
+{% endblock %}

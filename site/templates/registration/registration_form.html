@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %} {{ siteName }} {% trans 'Registration' %} {% endblock %}
+{% block container %}
+    <div class="content">
+    {% if form.errors %}
+        {% include 'registration/form_errors.html' %}
+    {% endif %}
+    </div>
+    <form method="post" action="">
+    {% csrf_token %}
+    <fieldset>
+    <legend>{{ siteName }} {% trans 'Registration' %}</legend>
+    {% for field in form %}
+        {% include 'registration/form_field.html' %}
+    {% endfor %}
+    </fieldset>
+    <div class="actions">
+            <button type="submit" class="btn"> {% trans "Create User" %} </button>
+            <button type="reset" class="btn"> {% trans "Cancel" %} </button>
+    </div>
+    </form>
+{% endblock %}

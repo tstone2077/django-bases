@@ -1,0 +1,7 @@
+Someone has initiated the creation of an account on {{ site }}.  If you have not initiated this account creation, please disregard this email.
+
+To complete the creation of this account, follow this link:
+http://{{ site }}{% url registration_activate activation_key=activation_key %}
+
+Thanks,
+The {{ site }} team
