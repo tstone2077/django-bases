@@ -1,4 +1,5 @@
 # Django settings for main project.
+from os import environ
 from os.path import abspath, dirname, join
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
@@ -25,6 +26,22 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+#Email settings (gmail)
+EMAIL_USE_TLS= True
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+try:
+    EMAIL_HOST_USER=environ['GMAIL_USERNAME']
+except KeyError as e:
+    import sys
+    sys.stderr.write("Environment variable not found: %s\n"%str(e))
+
+try:
+    EMAIL_HOST_PASSWORD=environ['GMAIL_PASSWORD']
+except KeyError as e:
+    import sys
+    sys.stderr.write("Environment variable not found: %s\n"%str(e))
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

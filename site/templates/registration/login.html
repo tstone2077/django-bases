@@ -4,10 +4,7 @@
 {% block container %}
     <div class="content">
     {% if form.errors %}
-        <div class="alert alert-block fade in">
-            <a class="close" data-dismiss="alert" href="#">×</a>
-            <p><strong>{% trans "Oh no!" %}</strong> {% trans "Please enter a correct username and password. Note that both fields are case-sensitive." %}</p>
-        </div>
+        {% include 'registration/form_errors.html' %}
     {% endif %}
     </div>
 
@@ -23,6 +20,8 @@
             <button type="submit" class="btn"> {% trans "Log In" %} </button>
             <button type="reset" class="btn"> {% trans "Cancel" %} </button>
         </div>
-
+        <div>
+            <a href="{% url django.contrib.auth.views.password_reset %}">{% trans "Forgot your password?" %}</a>
+        </div>
 </form>
 {% endblock %}

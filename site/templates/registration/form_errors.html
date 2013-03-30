@@ -1,0 +1,16 @@
+{% load i18n %}
+            <div class="alert alert-block fade in">
+                <a class="close" data-dismiss="alert" href="#">×</a>
+                <p>
+                {% blocktrans count form.errors.items|length as counter %}
+                Please correct the error below.
+                {% plural %}
+                Please correct the errors below.
+                {% endblocktrans %}
+                </p>
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $(".alert-message").alert();
+                    });
+                </script>
+            </div>
