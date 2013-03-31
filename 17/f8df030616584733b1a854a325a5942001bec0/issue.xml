@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<issue>
+<created>
+<datetime>20130330T225227</datetime>
+</created>
+<author>
+<person>
+<name>Thurston Stone</name>
+<email>tstone2077@gmail.com</email>
+</person>
+</author>
+<title>Logout problem</title>
+<summary/>
+<description/>
+<reporters>
+<list/>
+</reporters>
+<owners>
+<list/>
+</owners>
+<assigned/>
+<carbons>
+<list/>
+</carbons>
+<status>TODO</status>
+<resolution/>
+<type>defect</type>
+<components>
+<list/>
+</components>
+<version/>
+<milestone/>
+<severity>major</severity>
+<priority>medium</priority>
+<tags>
+<list/>
+</tags>
+<modified/>
+</issue>
