@@ -39,5 +39,8 @@ fi
 #install packages
 export PIP_DOWNLOAD_CACHE=$SCRIPT_DIR/pip-cache
 pip install django==1.4.2 || exit $?
+pushd git-issues
+python setup.py install
+popd
 echo Done creating environment "$ENV_NAME" using $PYTHON_BIN ...
 
