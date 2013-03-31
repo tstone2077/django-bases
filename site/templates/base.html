@@ -57,7 +57,12 @@
                         <div class="dropdown-menu login-menu">
                             <form action="{% url django.contrib.auth.views.login %}" method="post">
                                 {% csrf_token %}
+                                {% url django.contrib.auth.views.logout as logout_url %}
+                                {% if request.get_full_path == logout_url %}
+                                <input type="hidden" name="next" value="/" />
+                                {% else %}
                                 <input type="hidden" name="next" value="{{ request.path }}" />
+                                {% endif %}
                                 <input type="text" id="id_username" placeholder="{% trans 'Username' %}" name="username"/>
                                 <input type="password" id="id_password" placeholder="{% trans 'Password' %}" name="password"/>
                                 <input style="float: right;" type="submit" class="btn pull-right" value="{% trans 'Log In' %}" />
