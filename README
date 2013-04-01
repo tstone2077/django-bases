@@ -1,0 +1,15 @@
+Django-bases
+
+This repository is used as a base for django sites.  It uses twitter's bootstrap.  Each base is put on a branch.
+
+Currently, the  existing base sites are in the branchs:
+auth: This implements django's auth framework so users can log in and out.
+
+activation: This implements django-registration on top of the auth branch.  It allows users to log in, log out, and register for an account.  It is set up to use gmail as the email client.  GMAIL_USERNAME and GMAIL_PASSWORD are environment variables that are needed to be set in order to send emails.
+
+To use a base, checkout the desired branch, cd into virtualenv, and run:
+bash SetupPythonEnvironment.sh
+
+This will setup a virtual environment based on your os and architecture (e.g. Linux.x86_64).  No download should take place, since all the necessary PIP packages are checked in.
+
+Issues are managed through a modified version of git-issues.  The installation of git-issues is part of the virtual environment.
